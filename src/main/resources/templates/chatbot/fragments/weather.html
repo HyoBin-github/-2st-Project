@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&libraries=services,clusterer,drawing">
+    </script>
 <div class="part" th:if="${msg.answer.weatherInfo != null}" th:fragment="weatherFragment">
 
   <div class="part" th:if="${msg.answer.weatherInfo.city != null}">
@@ -13,13 +16,12 @@
       <span>최고기온: </span><span th:text="${msg.answer.weatherInfo.temp_max}"></span><br>
       <span>최저기온: </span><span th:text="${msg.answer.weatherInfo.temp_min}"></span>
     </p>
-    <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&libraries=services,clusterer,drawing">
-    </script>
     <script>
-      $(document).ready(function () {
+      window.addEventListener('DOMContentLoaded', function()
+      {
         var lat = $("#lat").val();
         var lon = $("#lon").val();
+        console.log(lat, lon);
         map(lon, lat);
 
         function map(lon, lat) {
