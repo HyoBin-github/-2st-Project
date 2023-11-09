@@ -60,6 +60,7 @@ public class WeatherService {
         DecimalFormat df = new DecimalFormat("#.#");
 
         String appid = "b6616c0963212986998cdd8cf346c479";
+
         String apiURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + appid; // JSON ���
         Map<String, String> requestHeaders = new HashMap<>();
         requestHeaders.put("Content-type", "application/json");

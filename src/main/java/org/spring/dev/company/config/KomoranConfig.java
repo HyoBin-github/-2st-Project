@@ -5,6 +5,7 @@ import kr.co.shineware.nlp.komoran.core.Komoran;
 import lombok.RequiredArgsConstructor;
 import org.spring.dev.company.repository.member.MemberRepository;
 import org.spring.dev.company.repository.weather.WeatherRepository;
+import org.spring.dev.openApi.bus.BusRepository;
 import org.spring.dev.openApi.movie.repository.MovieRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,7 @@ public class KomoranConfig {
     private final MemberRepository memberRepository;
     private final WeatherRepository weatherRepository;
     private final MovieRepository movieRepository;
+    private final BusRepository busRepository;
 
     @Bean
     Komoran komoran(){
@@ -62,6 +64,10 @@ public class KomoranConfig {
         movieRepository.findAll().forEach(e->{
             keys.add(e.getMovieNm());
         });
+        busRepository.findAll().forEach(e->{
+            keys.add(e.getBusRouteId());
+            keys.add(e.getBusRouteNm());
+        });
 
 
         keys.add("서울");
@@ -77,7 +83,7 @@ public class KomoranConfig {
             keys.forEach(key -> {
                 try {
                     bw.write(key + "\tNNP\n");
-                    System.out.println(key);
+//                    System.out.println(key);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }

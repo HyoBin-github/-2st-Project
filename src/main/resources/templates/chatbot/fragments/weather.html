@@ -1,58 +1,73 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&libraries=services,clusterer,drawing">
-    </script>
+
 <div class="part" th:if="${msg.answer.weatherInfo != null}" th:fragment="weatherFragment">
+    <!--    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&autoload=false,libraries=services,clusterer,drawing" defer ></script>-->
+    <div class="part" th:if="${msg.answer.weatherInfo.city != null}">
+        <div>
+            <div class="right-con">
+                <div class="map-con" th:attr="data-class=${msg.answer.weatherInfo.city}"
+                     th:classappend="${msg.answer.weatherInfo.city}"  style="width:250px;height:150px;" >
+                    <!--                    <div id="map" style="width:250px;height:150px;"></div>-->
+                </div>
+            </div>
+            <p>
+                <br>
+                <span id="city" th:text="${msg.answer.weatherInfo.city}"></span><br>
+                <span th:text="${msg.answer.weatherInfo.country}"></span><br>
+                <span>최고기온: </span><span th:text="${msg.answer.weatherInfo.temp_max}"></span><br>
+                <span>최저기온: </span><span th:text="${msg.answer.weatherInfo.temp_min}"></span>
+                <!--            <span>최저기온: </span><span th:text="${msg.answer.weatherInfo.lat}"></span>-->
+                <!--            <span>최저기온: </span><span th:text="${msg.answer.weatherInfo.lon}"></span>-->
+            </p>
+            <script th:inline="javascript">
+                var arr = ['Seoul', 'Busan', 'Gwangju', 'Chuncheon'];
+                var arrLat = [37.5683, 35.1028, 35.1547, 37.8747];
+                var arrLon = [126.9778, 129.0403, 126.9156, 127.7342];
 
-  <div class="part" th:if="${msg.answer.weatherInfo.city != null}">
-    <p>
-      <br>
-      <span th:text="${msg.answer.weatherInfo.city}"></span><br>
-      <span th:text="${msg.answer.weatherInfo.country}"></span><br>
-      <input type="hidden" id="lat" th:value="${msg.answer.weatherInfo.lat}">
-      <input type="hidden" id="lon" th:value="${msg.answer.weatherInfo.lon}">
-      <div id="map"></div>
-      <span>최고기온: </span><span th:text="${msg.answer.weatherInfo.temp_max}"></span><br>
-      <span>최저기온: </span><span th:text="${msg.answer.weatherInfo.temp_min}"></span>
-    </p>
-    <script>
-      window.addEventListener('DOMContentLoaded', function()
-      {
-        var lat = $("#lat").val();
-        var lon = $("#lon").val();
-        console.log(lat, lon);
-        map(lon, lat);
 
-        function map(lon, lat) {
-          /// 카카오 지도 API
-          var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-            mapOption = { // 위도    경도
-              center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
-              level: 10 // 지도의 확대 레벨
-            };
+                fn1();
 
-          var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-          // 마커가 표시될 위치입니다                  // 마커 위도   마커 경도
-          var markerPosition = new kakao.maps.LatLng(lat, lon);
-          // 마커를 생성합니다
-          var marker = new kakao.maps.Marker({
-            position: markerPosition
-          });
-          // 마커가 지도 위에 표시되도록 설정합니다
-          marker.setMap(map);
-          // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-          // marker.setMap(null);
-        }
+                function fn1() {
 
-      });
-    </script>
-  </div>
-  <div class="part" th:if="${msg.answer.weatherInfo.city == null}">
-    <p>
-      날씨정보를 조회할 수 없습니다.
-    </p>
-  </div>
+                    document.querySelectorAll('.map-con').forEach((el, idx) => {
+                        let dataClass = el.getAttribute('data-class');
+                        console.log(el.getAttribute('data-class'));
+                        console.log(el, idx)
+                        console.log(el.classList.contains(dataClass))
+                        arr.forEach((el2, idx2) => {
+                            if (el2 == dataClass) {
+                                 console.log(el2, dataClass, idx2);
+
+                                   var  mapOption = { // 위도    경도
+
+                                        center: new window.kakao.maps.LatLng(arrLat[idx2], arrLon[idx2]), // 지도의 중심좌표
+                                        level: 10 // 지도의 확대 레벨
+                                    };
+                                    var map = new window.kakao.maps.Map(document.querySelector(`.${dataClass}`), mapOption);
+                                    var markerPosition =new window.kakao.maps.LatLng(parseFloat(arrLat[idx2]), parseFloat(arrLon[idx2]));
+                                    var marker = new window.kakao.maps.Marker({
+                                        position: markerPosition
+                                    });
+                                    marker.setMap(map);
+                                  }
+
+                                  
+                            });
+                        });
+                            return false;
+                    }
+
+            </script>
+
+        </div>
+        <!--         java-->
+    </div>
+    <div class="part" th:if="${msg.answer.weatherInfo.city == null}">
+        <p>
+            날씨정보를 조회할 수 없습니다.
+        </p>
+    </div>
 </div>
 
 </html>

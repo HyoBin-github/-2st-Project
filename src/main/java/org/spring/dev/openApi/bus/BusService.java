@@ -6,8 +6,11 @@ import org.spring.dev.openApi.bus.busStation.BusDetailEntity;
 import org.spring.dev.openApi.bus.busStation.BusDetailRepository;
 import org.spring.dev.openApi.bus.busStation.BusStationResponse;
 import org.spring.dev.openApi.bus.busStation.ItemStationList;
+import org.spring.dev.openApi.movie.dto.MovieDto;
+import org.spring.dev.openApi.movie.entity.MovieEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -18,6 +21,24 @@ public class BusService {
 
   private final BusRepository busRepository;
   private final BusDetailRepository busDetailRepository;
+
+  public List<BusInfo> getBusList(String next) {
+    List<BusInfo> busDtoList = new ArrayList<>();
+    List<BusEntity> busEntityList = busRepository.findByBusRouteNmContaining(next);
+
+    for (BusEntity busEntity : busEntityList) {
+      busDtoList.add(
+              BusInfo.builder()
+                      .busRouteNm(busEntity.getBusRouteNm())
+                      .firstBusTm(busEntity.getFirstBusTm())
+                      .lastLowTm(busEntity.getLastLowTm())
+                      .busRouteId(busEntity.getBusRouteId())
+                      .build()
+      );
+    }
+
+    return busDtoList;
+  }
 
   public void insertResposeBody(String rs) {
 

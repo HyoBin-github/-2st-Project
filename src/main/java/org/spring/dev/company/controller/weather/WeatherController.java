@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.spring.dev.company.dto.weather.WeatherApiDto;
 import org.spring.dev.company.repository.weather.WeatherRepository;
 import org.spring.dev.company.service.weather.WeatherService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -18,6 +15,7 @@ public class WeatherController {
 
     private final WeatherService weatherService;
     private final WeatherRepository weatherRepository;
+
 
 
 

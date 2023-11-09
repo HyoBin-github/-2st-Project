@@ -13,15 +13,14 @@ import org.spring.dev.company.entity.member.MemberEntity;
 import org.spring.dev.company.repository.chatbot.IntentionRepository;
 import org.spring.dev.company.repository.member.MemberRepository;
 import org.spring.dev.company.service.weather.WeatherService;
+import org.spring.dev.openApi.bus.*;
 import org.spring.dev.openApi.movie.dto.MovieDto;
 import org.spring.dev.openApi.movie.service.MovieService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,6 +32,7 @@ public class KomoranService {
     private final MemberRepository memberRepository;
     private final WeatherService weatherService;
     private final MovieService movieService;
+    private final BusService busService;
 
     public ChatMessageDto analyze(String message) {
 
@@ -55,6 +55,7 @@ public class KomoranService {
         ChatMessageDto chatMessageDto = ChatMessageDto.builder()
                 .time(today.format(timeFormatter))
                 .build();
+        List<BusInfo> busInfo = new ArrayList<>();
 
 
         for (String token : nouns) {
@@ -86,6 +87,37 @@ public class KomoranService {
                 AnswerDto help = decisionTree("도움", null).get().getAnswerEntity().toAnswerDto();
                 chatMessageDto.answer(help);
             }else if(token.contains("영화")){
+            }
+            else if (token.contains("버스")) {
+//                String rs = next.toString();
+//                rs = rs.replaceAll("\\[|\\]", "");
+                for (String rs : next) {
+                    busInfo = busService.getBusList(rs);
+                    answer.busInfoList(busInfo);
+                }
+            }
+            else if (nouns.contains("날씨")) {
+                System.out.println("======================날씨====================");
+                String city = "";
+                WeatherInfo weatherInfo = new WeatherInfo();
+                if (nouns.contains("서울")){
+                    System.out.println("서울");
+                    city = "Seoul";
+                       weatherInfo = weatherService.weatherList(city);
+                } else if (nouns.contains("부산")) {
+                    city = "Busan";
+                       weatherInfo = weatherService.weatherList(city);
+                } else if (nouns.contains("광주")) {
+                    city = "Gwangju";
+                       weatherInfo = weatherService.weatherList(city);
+                } else if (nouns.contains("춘천")) {
+                    city = "ChunCheon";
+                       weatherInfo = weatherService.weatherList(city);
+                }
+
+                answer.weatherInfo(weatherInfo);
+            }
+
                 String movie = "";
                 List<MovieDto> movieInfo = null;
 //                if (nouns.contains("목록")) {
@@ -187,5 +219,7 @@ public class KomoranService {
         }
         return MemberInfo.builder().build();
     }
+
+
 
 }
