@@ -1,59 +1,62 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragments/layout/baseLayout}">
 <head>
-  <meta charset="UTF-8">
-  <title>날씨API</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script th:src="@{/js/weather/weather.js}" defer></script>
-  <script type="text/javascript"
-          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&libraries=services,clusterer,drawing">
-  </script>
+    <meta charset="UTF-8">
+    <title>날씨API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script th:src="@{/js/weather/weather.js}" defer></script>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95e2a555b3d507a2e61f27a2afd5fd0d&libraries=services,clusterer,drawing">
+    </script>
+    <link rel="stylesheet" th:href="@{/css/weather/weather.css}">
 
-  <link rel="stylesheet" th:href="@{/css/weather/weather.css}">
 </head>
-<body>
-<div id="wrap">
-  <div th:replace="~{/fragments/common/sidebar :: sidebarFragment}">
 
-  </div>
-  <div class="right-menu">
-    <div class="right-con">
-      <div class="weather-con">
-        <div class="left-con">
-          <div class="weather-search">
-            <!-- <input type="search" placeholder="지역입력" id="position" value="Seoul"> -->
-            <select name="search" id="search">
-              <option value="Seoul">서울</option>
-              <option value="Busan">부산</option>
-              <option value="Gwangju">광주</option>
-              <option value="ChunCheon">춘천</option>
-            </select>
-            <button onclick="weatherSerach()">검색</button>
-          </div>
-          <div class="weather-list">
-            <div class="city">
-              <span class="con"></span>
-              <span class="description"></span>
+
+<th:block layout:fragment="container">
+    <div class="weather-container">
+        <body>
+        <div class="right-menu">
+            <div class="right-con">
+                <h1>전국 날씨</h1>
+                <div class="weather-con">
+                    <div class="left-con">
+                        <div class="weather-search">
+                            <!-- <input type="search" placeholder="지역입력" id="position" value="Seoul"> -->
+                            <select name="search" id="search">
+                                <option value="Seoul">서울</option>
+                                <option value="Busan">부산</option>
+                                <option value="Gwangju">광주</option>
+                                <option value="ChunCheon">춘천</option>
+                            </select>
+                            <button onclick="weatherSerach()">검색</button>
+                        </div>
+                        <div class="weather-list">
+                            <div class="city">
+                                <span class="con"></span>
+                                <span class="description"></span>
+                            </div>
+                            <div class="temp_min">
+                                <span>최저온도</span>
+                                <span class="con"></span>
+                            </div>
+                            <div class="temp_max">
+                                <span>최고온도</span>
+                                <span class="con"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-con1">
+                        <div class="map-con">
+                            <div id="map" style="width:100%;height:350px;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="temp_min">
-              <span>최저온도</span>
-              <span class="con"></span>
-            </div>
-            <div class="temp_max">
-              <span>최고온도</span>
-              <span class="con"></span>
-            </div>
-          </div>
         </div>
-        <div class="right-con">
-        <div class="map-con">
-          <div id="map" style="width:100%;height:350px;"></div>
-        </div>
-        </div>
-      </div>
+        </body>
     </div>
-  </div>
-</div>
-
-</body>
+</th:block>
 </html>

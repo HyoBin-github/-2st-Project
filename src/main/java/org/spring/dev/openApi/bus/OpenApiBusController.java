@@ -1,6 +1,7 @@
 package org.spring.dev.openApi.bus;
 
 import lombok.RequiredArgsConstructor;
+import org.spring.dev.openApi.bus.busRoute.ApiExplorer;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,7 @@ public class OpenApiBusController {
   @GetMapping("/busList")
   public Map<String,String> busList( @RequestParam(required = false) String strSrch)
                                                     throws IOException {
-    String rs=ApiExplorer.getBusList(strSrch);
+    String rs= ApiExplorer.getBusList(strSrch);
 
     System.out.println(rs+" busList");
 

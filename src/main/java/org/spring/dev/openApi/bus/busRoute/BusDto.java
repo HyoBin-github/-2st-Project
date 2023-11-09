@@ -1,4 +1,4 @@
-package org.spring.dev.openApi.bus;
+package org.spring.dev.openApi.bus.busRoute;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

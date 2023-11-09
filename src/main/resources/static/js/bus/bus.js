@@ -1,6 +1,5 @@
 // 버스 노선
 const url = 'https://cors-anywhere.herokuapp.com/http://ws.bus.go.kr/api/rest/';
-//const url = 'http://ws.bus.go.kr/api/rest/';
 const serviceKey='NVJloZDa5SGDsI8Fh%2FRFvsncmFGpdbR2XZwJvhXquRiyzanDEWAHfz1LWFl4rhZV%2BSAttNUPMUmnVcuuk7AfxQ%3D%3D';
 
 const busDetail=document.querySelector('.bus-detail')
@@ -14,7 +13,7 @@ function busSearch(){
   let search=document.querySelector('#search')
   let type='busRouteInfo/getBusRouteList?';
   let strSrch=search.value;
-  console.log(strSrch +' < - strSrch2222 ')
+  console.log(strSrch +' <== strSrch? ')
 
   let apiUrl2 = `/api/busList?strSrch=${encodeURIComponent(strSrch)}`;
 

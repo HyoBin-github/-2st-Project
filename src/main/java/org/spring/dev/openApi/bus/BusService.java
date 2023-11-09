@@ -2,12 +2,13 @@ package org.spring.dev.openApi.bus;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.spring.dev.openApi.bus.busRoute.BusEntity;
+import org.spring.dev.openApi.bus.busRoute.BusResponse;
+import org.spring.dev.openApi.bus.busRoute.ItemList;
 import org.spring.dev.openApi.bus.busStation.BusDetailEntity;
 import org.spring.dev.openApi.bus.busStation.BusDetailRepository;
 import org.spring.dev.openApi.bus.busStation.BusStationResponse;
 import org.spring.dev.openApi.bus.busStation.ItemStationList;
-import org.spring.dev.openApi.movie.dto.MovieDto;
-import org.spring.dev.openApi.movie.entity.MovieEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

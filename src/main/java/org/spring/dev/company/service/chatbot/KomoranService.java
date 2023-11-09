@@ -87,37 +87,6 @@ public class KomoranService {
                 AnswerDto help = decisionTree("도움", null).get().getAnswerEntity().toAnswerDto();
                 chatMessageDto.answer(help);
             }else if(token.contains("영화")){
-            }
-            else if (token.contains("버스")) {
-//                String rs = next.toString();
-//                rs = rs.replaceAll("\\[|\\]", "");
-                for (String rs : next) {
-                    busInfo = busService.getBusList(rs);
-                    answer.busInfoList(busInfo);
-                }
-            }
-            else if (nouns.contains("날씨")) {
-                System.out.println("======================날씨====================");
-                String city = "";
-                WeatherInfo weatherInfo = new WeatherInfo();
-                if (nouns.contains("서울")){
-                    System.out.println("서울");
-                    city = "Seoul";
-                       weatherInfo = weatherService.weatherList(city);
-                } else if (nouns.contains("부산")) {
-                    city = "Busan";
-                       weatherInfo = weatherService.weatherList(city);
-                } else if (nouns.contains("광주")) {
-                    city = "Gwangju";
-                       weatherInfo = weatherService.weatherList(city);
-                } else if (nouns.contains("춘천")) {
-                    city = "ChunCheon";
-                       weatherInfo = weatherService.weatherList(city);
-                }
-
-                answer.weatherInfo(weatherInfo);
-            }
-
                 String movie = "";
                 List<MovieDto> movieInfo = null;
 //                if (nouns.contains("목록")) {
@@ -127,7 +96,15 @@ public class KomoranService {
 //                }
                 answer.movieInfoList(movieInfo);
                 chatMessageDto.answer(answer);
-            }else if (nouns.contains("날씨")) {
+            }
+            else if (token.contains("버스")) {
+//                String rs = next.toString();
+//                rs = rs.replaceAll("\\[|\\]", "");
+                for (String rs : next) {
+                    busInfo = busService.getBusList(rs);
+                    answer.busInfoList(busInfo);
+                }
+            } else if (nouns.contains("날씨")) {
                 System.out.println("======================날씨====================");
                 String city = "";
                 WeatherInfo weatherInfo = new WeatherInfo();
@@ -219,7 +196,5 @@ public class KomoranService {
         }
         return MemberInfo.builder().build();
     }
-
-
 
 }

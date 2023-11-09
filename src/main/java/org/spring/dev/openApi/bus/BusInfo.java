@@ -1,8 +1,7 @@
 package org.spring.dev.openApi.bus;
 
 import lombok.*;
-
-import java.util.Optional;
+import org.spring.dev.openApi.bus.busRoute.BusEntity;
 
 @Getter
 @Setter

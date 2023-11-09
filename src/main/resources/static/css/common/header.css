@@ -7,6 +7,9 @@
     top: 0;
     left: 0;
     background-color: white;
+
+    /*김양현 2023.11.07, 쳇본 수정 */
+    z-index: 999;
 }
 
 .header .nav{

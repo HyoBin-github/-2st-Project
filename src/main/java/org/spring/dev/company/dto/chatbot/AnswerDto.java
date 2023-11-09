@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.spring.dev.company.dto.weather.WeatherInfo;
-import org.spring.dev.openApi.bus.BusDto;
 import org.spring.dev.openApi.bus.BusInfo;
 import org.spring.dev.openApi.movie.dto.MovieDto;
 

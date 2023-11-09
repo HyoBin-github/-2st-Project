@@ -105,8 +105,8 @@ public class WeatherService {
                         .lon(weatherEntity.getLon())
                         .lat(weatherEntity.getLat())
                         .temp(weatherEntity.getTemp())
-                        .temp_min(weatherEntity.getTemp_min())
-                        .temp_max(weatherEntity.getTemp_max())
+                        .temp_min(Double.parseDouble(df.format(response.getMain().getTemp_min() - 273.15)))
+                        .temp_max(Double.parseDouble(df.format(response.getMain().getTemp_max() - 273.15)))
                         .build();
 
             } else {
@@ -117,8 +117,8 @@ public class WeatherService {
                         .lat(weatherEntity.getLat())
                         .lon(weatherEntity.getLon())
                         .temp(weatherEntity.getTemp())
-                        .temp_min(optionalWeatherEntity.get().getTemp_min())
-                        .temp_max(optionalWeatherEntity.get().getTemp_max())
+                        .temp_min(Double.parseDouble(df.format(response.getMain().getTemp_min() - 273.15)))
+                        .temp_max(Double.parseDouble(df.format(response.getMain().getTemp_max() - 273.15)))
                         .build();
 
             }

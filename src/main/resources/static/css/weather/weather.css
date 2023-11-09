@@ -1,13 +1,95 @@
-@import url(weather/common/reset.css);
-@import url(weather/commons/leftMenu.css);
-@import url(weather/commons/rightMenu.css);
-@import url(weather/commons/weath-con.css);
-#wrap{
-  width: 100%;
-  /* border: 1px solid; */
-  box-sizing: border-box;
+@import url(/css/common/reset.css);
+@import url(/css/common/header.css);
+@import url(/css/common/sidebar.css);
+
+h1{
+  text-align: center;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.weather-container{
+  width: calc( 100% - 200px );
+  position: fixed;
+  left: 200px;
+  top: 70px ;
+}
+.right-menu {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+}
+
+.right-con {
+  /*width: 86%;*/
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-left: auto;
+  margin-top: 70px;
+  position: relative;
+  z-index: 100;
+}
+
+/* 날씨 검색 스타일 */
+.weather-search {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* 날씨 정보 스타일 */
+.weather-list {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.weather-list > div {
   display: flex;
   justify-content: space-between;
-  gap: 5px;
-  background-color:#e7ede7;
+  margin-bottom: 10px;
 }
+
+.right-con{
+  position: relative;
+}
+
+/* 지도 스타일 */
+.map-con {
+  position: relative;
+  z-index: 100;
+  margin-top: 20px;
+
+}
+
+/*#map {*/
+/*  border: 1px solid #ccc;*/
+/*  border-radius: 5px;*/
+/*}*/
+

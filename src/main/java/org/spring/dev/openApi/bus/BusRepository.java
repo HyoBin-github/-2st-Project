@@ -1,5 +1,6 @@
 package org.spring.dev.openApi.bus;
 
+import org.spring.dev.openApi.bus.busRoute.BusEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
