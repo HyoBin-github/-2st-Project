@@ -2,8 +2,8 @@
 server:
   port: 8095
 
-navar.api.client-id: Fbdqhslq5uCCrvl6yQKk
-navar.api.client-secret: X3343HV9ZA
+# navar.api.client-id: 
+# navar.api.client-secret: 
 
 spring:
   mail:
@@ -61,10 +61,10 @@ spring:
 
 naver:
   api:
-    client-id: Fbdqhslq5uCCrvl6yQKk
-    client-secret: X3343HV9ZA
+    client-id: 
+    client-secret: 
 
-  auth-url: https://auth.worksmobile.com
+  auth-url: 
 
   org:
     units: /v1.0/orgunits
@@ -80,23 +80,23 @@ naver:
 
   redirect-url: http://localhost:8095/naver/token
 ---
-spring:
-  config:
-    activate:
-      on-profile: prd
+# spring:
+#   config:
+#     activate:
+#       on-profile: prd
 
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://project1.cxg8vdlfu0la.ap-southeast-2.rds.amazonaws.com:3306/dev
-    username: admin
-    password: '00000000'
+#   datasource:
+#     driver-class-name: com.mysql.cj.jdbc.Driver
+#     url: jdbc:mysql://project1.cxg8vdlfu0la.ap-southeast-2.rds.amazonaws.com:3306/dev
+#     username: admin
+#     password: '00000000'
 
-server:
-  port: 8095
+# server:
+#   port: 8095
 
-naver:
-  redirect-url: http://13.209.250.6:8095/naver/token
+# naver:
+#   redirect-url: http://13.209.250.6:8095/naver/token
 
-chatbot:
-  port: 8095
+# chatbot:
+#   port: 8095
 ---
