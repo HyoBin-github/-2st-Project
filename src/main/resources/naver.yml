@@ -1,22 +1,22 @@
 
-naver:
-  api:
-    client-id: Fbdqhslq5uCCrvl6yQKk
-    client-secret: X3343HV9ZA
+# naver:
+#   api:
+#     client-id: 
+#     client-secret: 
 
-  auth-url: https://auth.worksmobile.com
+#   auth-url: https://auth.worksmobile.com
 
-  org:
-    units: /v1.0/orgunits
+#   org:
+#     units: /v1.0/orgunits
 
-  auth:
-    uri:
-      authorize: /oauth2/v2.0/authorize
-      token: /oauth2/v2.0/token
+#   auth:
+#     uri:
+#       authorize: /oauth2/v2.0/authorize
+#       token: /oauth2/v2.0/token
 
-  scope: directory,directory.read,orgunit,orgunit.read,user,user.read
+#   scope: directory,directory.read,orgunit,orgunit.read,user,user.read
 
-  work-url : https://www.worksapis.com
+#   work-url : 
 
-  redirect-url : http://localhost:8095/naver/token
+#   redirect-url : http://localhost:8095/naver/token
 
