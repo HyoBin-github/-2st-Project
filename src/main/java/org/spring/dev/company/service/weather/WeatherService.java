@@ -37,15 +37,12 @@ public class WeatherService {
         if (!optionalWeatherEntity.isPresent()){
             weatherRepository.save(weather);
         }
-
         List<Weather> weatherList = weatherApiDto.getWeather()
                 .stream()
                 .collect(Collectors.toList());
-
         for(Weather el : weatherList){
             System.out.println("List" + el);
         }
-
         Map<String, String> weatherMap = new HashMap<>();
         ObjectMapper mapper = new ObjectMapper();
 

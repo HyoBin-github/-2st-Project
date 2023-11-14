@@ -105,7 +105,6 @@ public class KomoranService {
                     answer.busInfoList(busInfo);
                 }
             } else if (nouns.contains("날씨")) {
-                System.out.println("======================날씨====================");
                 String city = "";
                 WeatherInfo weatherInfo = new WeatherInfo();
                 if (nouns.contains("서울")) {

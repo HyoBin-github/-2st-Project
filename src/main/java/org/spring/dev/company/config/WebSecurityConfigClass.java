@@ -67,14 +67,8 @@ public class WebSecurityConfigClass {
                 .antMatchers("/member/logout","/chatbot/**").authenticated()
                 // STAFF
                 .antMatchers("/chat/**").hasAnyRole("STAFF")
-                // ADMIN
-                .antMatchers("/member/**").hasAnyRole("ADMIN","STAFF")
                 // FREELANCER
                 .antMatchers("/schedule/**").hasAnyRole("FREELANCER")
-                // COMPANY
-                .antMatchers().hasAnyRole("COMPANY")
-                // 모두 허용
-                .antMatchers("/member/join","/member/freeJoin","/member/companyJoin","/member/login","/member/companyLogin","/member/freelancerLogin").permitAll()
         ;
 
 

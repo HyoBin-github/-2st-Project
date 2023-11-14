@@ -22,8 +22,6 @@ public class WeatherController {
     @PostMapping("/weatherList")
     private Map<String, String> weatherList(@RequestBody WeatherApiDto weatherApiDto) throws Exception {
 
-        System.out.println(" <<  weatherApiDto >>  " + weatherApiDto);
-
         Map<String, String> weatherMap = weatherService.weatherSave(weatherApiDto);
 
         return weatherMap;

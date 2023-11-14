@@ -29,7 +29,6 @@ function weatherFn(cityVal) {
 
 
     let appUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&appid=0e549b8ba274344294623f7f93c1cd98`;
-    // let appUrl="https://api.openweathermap.org/data/2.5/weather?q="+cityVal+"&appid=";
 
     $.ajax({
         url: appUrl,
@@ -71,12 +70,10 @@ function weatherFn(cityVal) {
             $('.city .description').html($weather_description);
             // $('.cloud').append($cloud);
             // $('.temp_min').append($temp_min);
-
             // Math.floor(result.main.temp_min - 273.15) + 'º'
             $('.temp_min .con').html(Math.floor(result.main.temp_min - 273.15) + 'º');
             // $('.temp_max .con').append($temp_max);
             $('.temp_max .con').html(Math.floor(result.main.temp_max - 273.15) + 'º');
-
             mapFn(lon, lat);
         }
     })
