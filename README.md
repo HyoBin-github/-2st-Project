@@ -432,9 +432,12 @@ $(document).ready(function () {
 
  ## ☀️날씨 API <br> 
   OpenWeatherMap Api를 활용하여 데이터 저장 및 표출, 카카오 지도를 활용하여 위치표출
+  <br/>
 
 <details>
   <summary>페이지 표출 JavaScript</summary>
+
+  ![날씨 사진](https://github.com/HyoBin-github/-2st-and-3st-Project/assets/133307549/8511c769-d8b1-4d64-9a5b-602093ea0959)
 
 ````
 const search = document.querySelector('#search');
@@ -565,9 +568,11 @@ function weatherCreate(result) {
 ````
 
 </details>
-
+<br/>
 <details>
   <summary>챗봇을 활용한 날씨 API</summary>
+
+![챗봇날씨](https://github.com/HyoBin-github/-2st-and-3st-Project/assets/133307549/021c7999-2528-495d-ab34-a43cad952931)
 
 ````
     public WeatherInfo weatherList(String city) {
