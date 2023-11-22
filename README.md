@@ -1,7 +1,11 @@
 
-# SpringBoot-Project-SoleManager
+# 그룹웨어 기본 연동 기능 & 메시지 봇 구현 & 시나리오형 챗봇 웹개발
 스프링 부트 -> 프리랜서 중개 에이전시 그룹웨어
-<br>
+<br/>
+
+![2차, 3차 메인페이지](https://github.com/HyoBin-github/-2st-and-3st-Project/assets/133307549/64928544-cbdf-444f-a868-329b3680e35c)
+
+<br/>
 
 ## 🖥️ 프로젝트 소개
 1. 프리랜서와 회사 간의 적합한 프로젝트를 찾아 매칭하는 서비스 제공
