@@ -21,10 +21,10 @@
 
 ### 🏃‍♀️ 맴버 구성 <br/>
 
+* 방효빈 : 회원(CRUD), 회원가입, 회원페이지 디자인, 날씨 API <br/>
 * 김★진(팀장) : 근무/근태(R), 급여(C,R), BaseLayout디자인, 모달디자인, PPT, 영화 API <br/>
 * 김★현 : 로그인, 이메일 인증, 비밀번호 재설정, 권한별 LIST, 로그인 디자인, 날씨 API <br/>
 * 박★현 : 게시판(CRUD), 댓글, 파일, FUllCalendar일정추가, 웹소캣 알림 챗봇, 메인페이지디자인, PPT, 버스 API <br/>
-* 방★빈 : 회원(CRUD), 회원가입, 회원페이지 디자인, 날씨 API <br/>
 * 안★기 : 결재(CRUD), 버스 API <br/>
 * 이★훈 : 근무/근태(CUD), FUllCalendar(근무,프리랜서일정), 네이버웍스 구현, CI/CD, 영화 API <br/>
 
@@ -40,7 +40,11 @@
 # 2차 Project
 
 ## 회원가입
-회원의 DB를 하나만 설정하여 권한별로 회원가입의 페이지가 다르게 설정
+회원의 DB를 하나만 설정하여 권한별로 회원가입의 페이지가 다르게 설정<br>
+회원가입시 빈칸이 있거나 중복될경우 회원가입 버튼 비활성화
+
+![회원가입](https://github.com/HyoBin-github/-2st-and-3st-Project/assets/133307549/bb3205c4-1027-444d-abc0-3fa2dfc9e235)
+![회원가입아래](https://github.com/HyoBin-github/-2st-and-3st-Project/assets/133307549/36512bfe-b6c7-4806-bf98-5741882ee4f9)
 
 <details>
   <summary>회원별 로그인페이지</summary>
