@@ -599,7 +599,7 @@ function weatherCreate(result) {
 
         WeatherApiDto response = null;
         try {
-            // json ���ڿ������͸� -> Ŭ������ ����
+            
             response = objectMapper.readValue(responseBody, WeatherApiDto.class);
         } catch (Exception e) {
             e.printStackTrace();
